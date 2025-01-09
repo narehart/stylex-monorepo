@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as stylex from '@stylexjs/stylex';
 import * as Slot from '@radix-ui/react-slot';
-import { tokens } from '../../theme/tokens';
+import { tokens } from '../../theme/tokens.stylex';
 
 type ButtonVariant = 'solid' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';

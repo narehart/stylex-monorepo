@@ -67,16 +67,11 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve(__dirname, 'tsconfig.build.json')
+              configFile: path.resolve(__dirname, 'tsconfig.json')
             }
           }
         ]
       }
     ]
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ]
+  }
 };

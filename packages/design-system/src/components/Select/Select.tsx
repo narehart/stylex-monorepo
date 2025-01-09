@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import * as stylex from '@stylexjs/stylex';
-import { tokens } from '../../theme/tokens';
+import { tokens } from '../../theme/tokens.stylex';
 
 const styles = stylex.create({
   trigger: {

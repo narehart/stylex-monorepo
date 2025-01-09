@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/App.tsx',
+  entry: './src/index.tsx',
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -18,7 +18,8 @@ module.exports = {
     },
     port: 3000,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -57,7 +58,10 @@ module.exports = {
             }
           },
           {
-            loader: 'ts-loader'
+            loader: 'ts-loader',
+            options: {
+              configFile: path.resolve(__dirname, 'tsconfig.json')
+            }
           }
         ]
       },
@@ -73,9 +77,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
   optimization: {

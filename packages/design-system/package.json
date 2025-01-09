@@ -8,7 +8,7 @@
       "dist/**"
     ],
     "scripts": {
-      "build": "npm run clean && npm run build:types && webpack",
+      "build": "npm run clean && webpack",
       "dev": "webpack --watch",
       "lint": "eslint \"src/**/*.{ts,tsx}\"",
       "clean": "rimraf dist"

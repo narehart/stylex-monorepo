@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { Button, Select, SelectItem } from '@monorepo/design-system';
+import { Button, Select, SelectItem, tokens } from '@monorepo/design-system';
 
 /**
  * Example Application
@@ -18,6 +18,7 @@ const styles = stylex.create({
     flexDirection: 'column',
     gap: '1rem',
     maxWidth: '24rem',
+    borderRadius: tokens.borderRadius,
   },
   buttonGroup: {
     // Horizontal layout for button variants

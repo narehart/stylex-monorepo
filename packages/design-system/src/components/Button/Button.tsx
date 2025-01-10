@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as stylex from '@stylexjs/stylex';
 import * as Slot from '@radix-ui/react-slot';
-import { tokens } from '../../theme/tokens.stylex';
+import { tokens } from '../../tokens.stylex';
 
 type ButtonVariant = 'solid' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -65,7 +65,8 @@ const styles = stylex.create({
   },
 });
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   asChild?: boolean;
@@ -73,7 +74,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'solid', size = 'md', asChild, children, className, ...props }, ref) => {
+  (
+    { variant = 'solid', size = 'md', asChild, children, className, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot.Slot : 'button';
 
     return (
@@ -84,7 +88,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...stylex.props(
           styles.base,
           variant && styles[variant],
-          size && styles[size],
+          size && styles[size]
         )}
       >
         {children}

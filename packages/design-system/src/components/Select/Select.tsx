@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import * as stylex from '@stylexjs/stylex';
-import { tokens } from '../../theme/tokens.stylex';
+import { tokens } from '../../tokens.stylex';
 
 const styles = stylex.create({
   trigger: {
@@ -71,7 +71,7 @@ export const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
         <SelectPrimitive.Trigger ref={ref} {...stylex.props(styles.trigger)}>
           <SelectPrimitive.Value placeholder={placeholder} />
         </SelectPrimitive.Trigger>
-        
+
         <SelectPrimitive.Portal>
           <SelectPrimitive.Content {...stylex.props(styles.content)}>
             <SelectPrimitive.Viewport {...stylex.props(styles.viewport)}>

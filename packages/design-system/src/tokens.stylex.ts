@@ -1,14 +1,7 @@
+
+// It's advised to keep the tokens at the top-level of the src directory as Stylex requires direct imports of variables from the .stylex.js files that define them.
 import * as stylex from '@stylexjs/stylex';
 
-/**
- * Design Token System
- * 
- * Key concepts:
- * - Semantic naming: Tokens describe their purpose, not their value
- * - Scale-based: Values follow a consistent scaling system
- * - Theme-aware: Supports light/dark mode through CSS custom properties
- * - Maintainable: Single source of truth for design values
- */
 export const tokens = stylex.defineVars({
     // Colors
     colorBackground: '#ffffff',

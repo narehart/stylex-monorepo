@@ -9,7 +9,8 @@
     "composite": true,
     "rootDir": "src",
     "types": ["node", "react", "react-dom"],
-    "noEmit": false
+    "noEmit": false,
+    "moduleResolution": "bundler"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

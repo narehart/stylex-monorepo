@@ -11,6 +11,6 @@
     "types": ["node", "react", "react-dom"],
     "noEmit": false
   },
-  "include": ["./src/**/*", "src/theme/.stylex.tokens.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

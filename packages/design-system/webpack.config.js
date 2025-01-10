@@ -2,37 +2,41 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.ts',
+    // Tokens that are meant to be used in in stylex.create() calls must come from a file with the .stylex extension
+    'tokens.stylex': './src/tokens.stylex.ts',
+  },
   mode: 'production',
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].js',
     library: {
       type: 'umd',
-      name: 'design-system'
+      name: ['designSystem', '[name]'],
     },
-    globalObject: 'this'
+    globalObject: 'this',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
   externals: {
     react: {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
-      root: 'React'
+      root: 'React',
     },
     '@stylexjs/stylex': {
       commonjs: '@stylexjs/stylex',
       commonjs2: '@stylexjs/stylex',
       amd: 'stylex',
-      root: 'stylex'
-    }
+      root: 'stylex',
+    },
   },
   module: {
     rules: [
@@ -46,7 +50,7 @@ module.exports = {
               presets: [
                 '@babel/preset-env',
                 '@babel/preset-typescript',
-                ['@babel/preset-react', { runtime: 'automatic' }]
+                ['@babel/preset-react', { runtime: 'automatic' }],
               ],
               plugins: [
                 [
@@ -57,21 +61,21 @@ module.exports = {
                     treeshakeCompensation: true,
                     unstable_moduleResolution: {
                       type: 'commonJS',
-                      rootDir: path.resolve(__dirname, '../..')
-                    }
-                  }
-                ]
-              ]
-            }
+                      rootDir: path.resolve(__dirname, '../..'),
+                    },
+                  },
+                ],
+              ],
+            },
           },
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve(__dirname, 'tsconfig.json')
-            }
-          }
-        ]
-      }
-    ]
-  }
+              configFile: path.resolve(__dirname, 'tsconfig.json'),
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

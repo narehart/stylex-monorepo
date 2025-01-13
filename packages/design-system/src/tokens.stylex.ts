@@ -1,5 +1,5 @@
 
-// It's advised to keep the tokens at the top-level of the src directory as Stylex requires direct imports of variables from the .stylex.js files that define them.
+// It's advised to keep the tokens at the top-level of the src directory as Stylex requires direct imports of variables from the .stylex.js files that define them. This keeps the import paths less verbose.
 import * as stylex from '@stylexjs/stylex';
 
 export const tokens = stylex.defineVars({

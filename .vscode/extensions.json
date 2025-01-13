@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "yash-singh.stylex",
+    "dbaeumer.vscode-eslint"
+  ]
+}

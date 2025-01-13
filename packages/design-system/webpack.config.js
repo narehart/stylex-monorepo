@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const StylexPlugin = require('@stylexjs/webpack-plugin');
 
-module.exports = {
+const config = (env, argv) => ({
   entry: {
     index: './src/index.ts',
-    // Tokens that are meant to be used in in stylex.create() calls must come from a file with the .stylex extension
+    // Tokens that are meant to be used in in stylex.create() calls must come from a file with the .stylex extension.
     'tokens.stylex': './src/tokens.stylex.ts',
   },
   mode: 'production',
@@ -25,12 +26,14 @@ module.exports = {
     },
   },
   externals: {
+    // Consumers of the design-system component library will need to setup React in their own application.
     react: {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'React',
       root: 'React',
     },
+    // Consumers of the design-system library will need to setup StyleX in their own application.
     '@stylexjs/stylex': {
       commonjs: '@stylexjs/stylex',
       commonjs2: '@stylexjs/stylex',
@@ -44,6 +47,7 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
+          // babel-loader is used for transpiling the code.
           {
             loader: 'babel-loader',
             options: {
@@ -52,22 +56,9 @@ module.exports = {
                 '@babel/preset-typescript',
                 ['@babel/preset-react', { runtime: 'automatic' }],
               ],
-              plugins: [
-                [
-                  '@stylexjs/babel-plugin',
-                  {
-                    dev: false,
-                    genConditionalClasses: true,
-                    treeshakeCompensation: true,
-                    unstable_moduleResolution: {
-                      type: 'commonJS',
-                      rootDir: path.resolve(__dirname, '../..'),
-                    },
-                  },
-                ],
-              ],
             },
           },
+          // ts-loader performs type checking, ensuring that the TypeScript code adheres to the type definitions and constraints specified in the tsconfig.json file.
           {
             loader: 'ts-loader',
             options: {
@@ -78,4 +69,25 @@ module.exports = {
       },
     ],
   },
-};
+  plugins: [
+    new StylexPlugin({
+      filename: 'styles.[contenthash].css',
+      // Get webpack mode and set value for dev.
+      dev: argv.mode === 'development',
+      // Use statically generated CSS files and not runtime injected CSS even in development.
+      runtimeInjection: false,
+      // Use a unique prefix for generated class names so we can identify them in the DOM.
+      classNamePrefix: 'ds-',
+      // Required for CSS variable support
+      unstable_moduleResolution: {
+        // type: 'commonJS' | 'haste'
+        // default: 'commonJS'
+        type: 'commonJS',
+        // The absolute path to the root directory of the project.
+        rootDir: path.resolve(__dirname, '../..'),
+      },
+    }),
+  ],
+});
+
+module.exports = config;

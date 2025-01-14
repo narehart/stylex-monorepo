@@ -7,10 +7,10 @@
     "declarationDir": "./dist",
     "sourceMap": true,
     "composite": true,
-    "rootDir": "src",
+    "rootDir": "./",
     "types": ["node", "react", "react-dom"],
     "noEmit": false
   },
-  "include": ["./src/**/*"],
+  "include": ["./.storyboook/**/*", "./src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

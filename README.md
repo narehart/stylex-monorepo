@@ -16,10 +16,20 @@ This repository is a monorepo setup for a project using Stylex, a CSS-in-JS libr
 
 ## Development
 
+### Setup
+
 1. Clone the repository.
 2. Run `npm i` to install dependencies.
-3. Run `npm run build --workspace=@monorepo/design-system` to build the deisgn system.
-4. Use `npm run dev --workspace=web` to start the web app development server.
+
+### Design System
+
+1. Run `npm run storybook --workspace=@monorepo/design-system` to start the storybook development server.
+2. Make changes.
+3. Run `npm run build --workspace=@monorepo/design-system` to compile the design system for use in apps.
+
+### Web App
+
+1. Use `npm run dev --workspace=web` to start the web app development server.
 
 ## Contributing
 

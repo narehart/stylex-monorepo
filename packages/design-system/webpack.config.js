@@ -13,6 +13,7 @@ const config = (env, argv) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+    publicPath: '/',
     library: {
       type: 'umd',
       name: ['designSystem', '[name]'],
@@ -74,8 +75,9 @@ const config = (env, argv) => ({
       filename: 'styles.[contenthash].css',
       // Get webpack mode and set value for dev.
       dev: argv.mode === 'development',
-      // Use statically generated CSS files and not runtime injected CSS even in development.
-      runtimeInjection: false,
+      // Enable runtime injection for development so we can see changes to our styles.
+      // Note: it should be possible to use statically generated CSS files even in development mode and get hot reloading of styles.
+      runtimeInjection: argv.mode === 'development',
       // Use a unique prefix for generated class names so we can identify them in the DOM.
       classNamePrefix: 'ds-',
       // Required for CSS variable support

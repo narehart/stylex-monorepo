@@ -14,7 +14,6 @@ function getAbsolutePath(value: string): any {
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    getAbsolutePath('@storybook/addon-actions'),
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-interactions'),
     getAbsolutePath('@storybook/addon-links'),
@@ -23,10 +22,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-webpack5',
     options: { fastRefresh: true },
   },
-  webpackFinal: async (config, { configType }) => {
-    const customConfig = customWebpackConfig(config, { configType });
+  webpackFinal: async config => {
+    const customConfig = customWebpackConfig('storybook', config);
 
-    // Merge custom webpack configuration with Storybook's default configuration
     return {
       ...config,
       module: {
@@ -49,12 +47,6 @@ const config: StorybookConfig = {
         ...(customConfig.plugins ?? []).filter(Boolean),
       ],
     };
-  },
-  previewHead: head => {
-    return `
-      ${head}
-      <link rel="stylesheet" type="text/css" href="/styles.css">
-    `;
   },
 };
 

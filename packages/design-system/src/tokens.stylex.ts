@@ -7,8 +7,8 @@ export const tokens = stylex.defineVars({
   colorBorder: '#e4e4e7',
   colorForeground: '#18181b',
   colorForegroundMuted: '#71717a',
-  colorPrimary: '#3b82f6',
-  colorPrimaryHover: '#2563eb',
+  colorPrimary: '#f63bdd',
+  colorPrimaryHover: '#bd25eb',
   colorPrimaryForeground: '#ffffff',
 
   // Border tokens

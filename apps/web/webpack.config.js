@@ -2,8 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylexPlugin = require('@stylexjs/webpack-plugin');
 
-const rootDir = path.resolve(__dirname, '../..');
-
 const config = (env, argv) => ({
   entry: './src/index.tsx',
   mode: 'development',

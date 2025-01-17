@@ -1,67 +1,96 @@
-# Stylex Monorepo
+# Stylex Monorepo 🎨
 
-This repository is a monorepo setup demonstrating how to use [Stylex](https://stylexjs.org/) (Meta's CSS-in-JS library) and [Radix UI](https://www.radix-ui.com/) for building a token-based design system. Its purpose is to showcase a practical implementation of a component library with examples of variants, composition, tokens, and conditional styling.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18.2+-blue)](https://reactjs.org/)
 
-## Prerequisites
+A modern, production-ready monorepo showcasing [Stylex](https://stylexjs.org/) (Meta's CSS-in-JS solution) integrated with [Radix UI](https://www.radix-ui.com/). Build scalable design systems with type-safe styling and accessible components.
 
-- Node.js (v16 or higher)
-- npm (v7 or higher)
+## ✨ Features
 
-## Technology Stack
+- 🎯 Type-safe styling with Stylex
+- 🧩 Composable Radix UI primitives
+- 📦 Monorepo architecture with workspace optimizations
+- 🔧 Full TypeScript support
+- 📱 Mobile-first responsive design
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/stylex-demo.git
+
+# Install dependencies
+npm install
+
+# Start development
+npm run dev
+```
+
+## 🛠️ Technology Stack
 
 - Stylex (CSS-in-JS)
 - Radix UI (Headless Components)
 - React 18
 - TypeScript
 - Webpack
-- Storybook
 
-## Structure
+## 📁 Project Structure
 
-- `packages/`: Contains shared packages such as design systems or utility libraries.
-- `apps/`: Contains individual applications (currently just web but mobile could be added as well).
+```
+stylex-demo/
+├── packages/
+│   ├── design-system/        # Core UI components and tokens
+├── apps/
+│   └── web/                  # Main web application
+```
 
-## Scripts
+## 📝 Development Guide
 
-- `build`: Builds all workspaces.
-- `lint`: Lints all workspaces.
-- `format`: Formats code using Prettier.
-- `prepare`: Sets up Husky for Git hooks.
+### Prerequisites
 
-## Development
+- Node.js (v16 or higher)
+- npm (v7 or higher)
 
-### Setup
+### Getting Started
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Build all packages:
-   ```bash
-   npm run build
-   ```
-
-### Development Workflow
-
-1. Start the design system and web dev servers:
+1. **Setup Your Environment**
 
    ```bash
-   npm run dev
+   npm install    # Install dependencies
+   npm run build  # Build all packages
+   npm run dev    # Start development servers
    ```
 
-2. Make changes to components in `packages/design-system/src`
+2. **Development Workflow**
+   - Make changes in `packages/design-system/src`
+   - Make changes in `apps/web/src`
+   - View changes at http://localhost:3000/
 
-### Troubleshooting
+### 🐛 Troubleshooting
 
-- If you encounter missing dependencies, run `npm install` at the root
-- For Stylex compilation issues, ensure Babel and Webpack configs are properly set up
-- Clear build artifacts with `npm run clean` in the affected workspace
+Common issues and solutions:
 
-## Contributing
+1. **Missing Dependencies**
 
-Please follow the coding standards and guidelines provided in the repository. Ensure all code is properly linted and formatted before submitting a pull request.
+   ```bash
+   npm install      # Re-install dependencies
+   npm run clean    # Clear build artifacts
+   ```
 
-## License
+2. **Stylex Compilation Issues**
+   - Verify Babel config
+   - Check Webpack setup
+   - Clear TypeScript cache
 
-This project is licensed under the MIT License.
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+MIT License - feel free to use this project for your own learning and development!

@@ -1,87 +1,85 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylexPlugin = require('@stylexjs/webpack-plugin');
 
-module.exports = {
+const rootDir = path.resolve(__dirname, '../..');
+
+const config = (env, argv) => ({
   entry: './src/index.tsx',
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    clean: true
+    clean: true,
   },
   devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public')
+      directory: path.join(__dirname, 'public'),
     },
     port: 3000,
     hot: true,
     historyApiFallback: true,
-    open: true
+    open: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
+        test: /\.(js|ts|tsx)$/,
+        exclude: {
+          and: [/node_modules/],
+          // The design system is an ES module, so we need to include it in transpilation.
+          not: [/@monorepo\/design-system/],
+        },
         use: [
+          // babel-loader is used for transpiling the code.
           {
             loader: 'babel-loader',
             options: {
               presets: [
-                '@babel/preset-env',
-                '@babel/preset-typescript',
-                ['@babel/preset-react', { runtime: 'automatic' }]
-              ],
-              plugins: [
                 [
-                  '@stylexjs/babel-plugin',
+                  '@babel/preset-env',
                   {
-                    dev: true,
-                    genConditionalClasses: true,
-                    treeshakeCompensation: true,
-                    unstable_moduleResolution: {
-                      type: 'commonJS',
-                      rootDir: path.resolve(__dirname, '../..')
-                    }
-                  }
-                ]
-              ]
-            }
+                    modules: false,
+                    targets: { esmodules: true },
+                  },
+                ],
+                '@babel/preset-typescript',
+                ['@babel/preset-react', { runtime: 'automatic' }],
+              ],
+              plugins: ['@babel/plugin-transform-runtime'],
+            },
           },
-          {
-            loader: 'ts-loader',
-            options: {
-              configFile: path.resolve(__dirname, 'tsconfig.json')
-            }
-          }
-        ]
+        ],
+        type: 'javascript/auto',
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
-    ]
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
+    new StylexPlugin({
+      filename: 'styles.[contenthash].css',
+      // Get webpack mode and set value for dev.
+      dev: argv.mode === 'development',
+      // Enable runtime injection for development so we can see changes to our styles.
+      // Note: it should be possible to use statically generated CSS files even in development mode and get hot reloading of styles.
+      runtimeInjection: argv.mode === 'development',
+      // Use a unique prefix for generated class names so we can identify them in the DOM.
+      classNamePrefix: 'web-',
+      // Required for CSS variable support
     }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
-    })
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public', 'index.html'),
+      inject: true,
+    }),
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
-  }
-};
+      chunks: 'all',
+    },
+  },
+});
+
+module.exports = config;

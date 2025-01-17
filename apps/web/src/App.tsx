@@ -1,9 +1,12 @@
 import * as stylex from '@stylexjs/stylex';
-import { Button, Select, SelectItem, tokens } from '@monorepo/design-system';
+import { Button, Select, SelectItem } from '@monorepo/design-system';
+// import { tokens } from '@monorepo/design-system/tokens.stylex';
+
+// console.log(tokens);
 
 /**
  * Example Application
- * 
+ *
  * Demonstrates:
  * 1. Consuming design system components
  * 2. Component composition patterns
@@ -18,7 +21,7 @@ const styles = stylex.create({
     flexDirection: 'column',
     gap: '1rem',
     maxWidth: '24rem',
-    borderRadius: tokens.borderRadius,
+    borderRadius: '1rem',
   },
   buttonGroup: {
     // Horizontal layout for button variants
@@ -36,7 +39,7 @@ export default function App() {
         <Button>Medium</Button>
         <Button size="lg">Large</Button>
       </div>
-      
+
       {/* Demonstrating composition with Radix */}
       <Select>
         <SelectItem value="1">Option 1</SelectItem>

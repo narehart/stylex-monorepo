@@ -15,7 +15,7 @@ const config = (env, argv) => ({
     module: true,
     library: { type: 'module' },
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].mjs',
     clean: true,
   },
   resolve: {

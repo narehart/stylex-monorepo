@@ -1,3 +1,3 @@
 // Barrel file for design-system package
-export * from './components/Button/Button';
-export * from './components/Select/Select';
+export { Button } from './components/Button/Button';
+export { Select, SelectItem } from './components/Select/Select';

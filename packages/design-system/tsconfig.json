@@ -1,16 +1,16 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist",
-    "declaration": true,
-    "declarationDir": "./dist",
-    "sourceMap": true,
-    "composite": true,
-    "rootDir": "./",
-    "types": ["node", "react", "react-dom"],
-    "noEmit": false
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": false,
+    "declaration": true
   },
-  "include": ["./.storyboook/**/*", "./src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist", "./src/**/*.stories.tsx"]
 }

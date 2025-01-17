@@ -7,7 +7,7 @@ export const tokens = stylex.defineVars({
   colorBorder: '#e4e4e7',
   colorForeground: '#18181b',
   colorForegroundMuted: '#71717a',
-  colorPrimary: '#3bf6e6',
+  colorPrimary: '#f63b3b',
   colorPrimaryHover: '#bd25eb',
   colorPrimaryForeground: '#ffffff',
 
@@ -48,6 +48,8 @@ export const tokens = stylex.defineVars({
   space4: '1rem',
   space5: '1.25rem',
   space6: '1.5rem',
+  space7: '1.75rem',
+  space8: '2rem',
 
   // Shadows
   shadowSm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',

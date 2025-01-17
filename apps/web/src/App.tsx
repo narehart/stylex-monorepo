@@ -1,8 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 import { Button, Select, SelectItem } from '@monorepo/design-system';
-// import { tokens } from '@monorepo/design-system/tokens.stylex';
-
-// console.log(tokens);
+import { tokens } from '@monorepo/design-system/tokens.stylex';
 
 /**
  * Example Application
@@ -16,17 +14,17 @@ import { Button, Select, SelectItem } from '@monorepo/design-system';
 const styles = stylex.create({
   container: {
     // Using spacing tokens for consistent layout
-    padding: '2rem',
+    padding: tokens.space8,
     display: 'flex',
     flexDirection: 'column',
-    gap: '1rem',
+    gap: tokens.space4,
     maxWidth: '24rem',
-    borderRadius: '1rem',
+    borderRadius: tokens.space4,
   },
   buttonGroup: {
     // Horizontal layout for button variants
     display: 'flex',
-    gap: '0.5rem',
+    gap: tokens.space2,
   },
 });
 

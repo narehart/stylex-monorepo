@@ -44,24 +44,13 @@ This repository is a monorepo setup demonstrating how to use [Stylex](https://st
 
 ### Development Workflow
 
-1. Start the design system:
+1. Start the design system and web dev servers:
 
    ```bash
-   npm run storybook --workspace=@monorepo/design-system
+   npm run dev
    ```
 
-2. In a separate terminal, start the web app:
-
-   ```bash
-   npm run dev --workspace=web
-   ```
-
-3. Make changes to components in `packages/design-system/src`
-4. Test changes in Storybook
-5. Build design system before testing in web app:
-   ```bash
-   npm run build --workspace=@monorepo/design-system
-   ```
+2. Make changes to components in `packages/design-system/src`
 
 ### Troubleshooting
 

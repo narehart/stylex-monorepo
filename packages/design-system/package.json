@@ -13,7 +13,8 @@
     }
   },
   "scripts": {
-    "build": "npm run clean && tsc && fix-esm-import-path dist",
+    "build": "npm run clean && node build.mjs",
+    "dev": "node build.mjs --watch",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "clean": "rimraf dist"
   },
@@ -24,7 +25,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
-    "@radix-ui/react-tooltip": "^1.0.7"
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "esbuild": "^0.24.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.2",

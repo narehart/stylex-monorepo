@@ -8,18 +8,19 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "clean": "rimraf node_modules",
-    "dev": "npm run dev --workspaces --if-present",
+    "dev": "concurrently \"npm run dev --workspace=@monorepo/design-system\" \"wait-on packages/design-system/dist/index.js && npm run dev --workspace=web\"",
     "lint": "npm run lint --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@stylexjs/eslint-plugin": "^0.4.1",
     "@types/node": "^20.8.2",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.10",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
-    "@stylexjs/eslint-plugin": "^0.4.1",
+    "concurrently": "^9.1.2",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
@@ -28,7 +29,8 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "wait-on": "^8.0.2"
   },
   "resolutions": {
     "react": "^18.2.0",

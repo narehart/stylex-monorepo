@@ -7,7 +7,7 @@ export const tokens = stylex.defineVars({
   colorBorder: '#e4e4e7',
   colorForeground: '#18181b',
   colorForegroundMuted: '#71717a',
-  colorPrimary: '#f63bdd',
+  colorPrimary: '#3bf6e6',
   colorPrimaryHover: '#bd25eb',
   colorPrimaryForeground: '#ffffff',
 

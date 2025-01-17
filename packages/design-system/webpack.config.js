@@ -45,6 +45,9 @@ const config = (env, argv) => ({
       },
     ],
   },
+  optimization: {
+    minimize: false,
+  },
 });
 
 export default config;

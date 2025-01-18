@@ -4,3 +4,4 @@ coverage
 build
 .webpack
 *.d.ts
+.husky

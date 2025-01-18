@@ -14,12 +14,12 @@ import { tokens } from '@monorepo/design-system/tokens.stylex';
 const styles = stylex.create({
   container: {
     // Using spacing tokens for consistent layout
-    padding: tokens.space8,
+    borderRadius: tokens.space4,
     display: 'flex',
     flexDirection: 'column',
     gap: tokens.space4,
     maxWidth: '24rem',
-    borderRadius: tokens.space4,
+    padding: tokens.space8,
   },
   buttonGroup: {
     // Horizontal layout for button variants

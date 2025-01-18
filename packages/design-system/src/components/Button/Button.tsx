@@ -8,60 +8,64 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 
 const styles = stylex.create({
   base: {
-    display: 'inline-flex',
     alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: tokens.borderRadius,
+    cursor: {
+      default: 'pointer',
+      ':disabled': 'not-allowed',
+    },
+    display: 'inline-flex',
     fontSize: tokens.fontSizeBase,
     fontWeight: tokens.fontWeightMedium,
-    transition: `all ${tokens.transitionDuration} ${tokens.transitionTimingFunction}`,
-    cursor: 'pointer',
     gap: tokens.space2,
-    ':disabled': {
-      opacity: 0.5,
-      cursor: 'not-allowed',
+    justifyContent: 'center',
+    opacity: {
+      ':disabled': 0.5,
     },
+    transition: `all ${tokens.transitionDuration} ${tokens.transitionTimingFunction}`,
   },
   // Variants
   solid: {
-    backgroundColor: tokens.colorPrimary,
-    color: tokens.colorPrimaryForeground,
-    ':hover': {
-      backgroundColor: tokens.colorPrimaryHover,
+    backgroundColor: {
+      default: tokens.colorPrimary,
+      hover: tokens.colorPrimaryHover,
     },
+    color: tokens.colorPrimaryForeground,
   },
   outline: {
-    backgroundColor: 'transparent',
-    borderWidth: tokens.borderWidth,
-    borderStyle: 'solid',
-    borderColor: tokens.colorBorder,
-    color: tokens.colorForeground,
-    ':hover': {
-      borderColor: tokens.colorBorderHover,
-      backgroundColor: tokens.colorBackgroundHover,
+    backgroundColor: {
+      default: 'transparent',
+      ':hover': tokens.colorBackgroundHover,
     },
+    borderColor: {
+      default: tokens.colorBorder,
+      ':hover': tokens.colorBorderHover,
+    },
+    borderStyle: 'solid',
+    borderWidth: tokens.borderWidth,
+    color: tokens.colorForeground,
   },
   ghost: {
-    backgroundColor: 'transparent',
-    color: tokens.colorForeground,
-    ':hover': {
-      backgroundColor: tokens.colorBackgroundHover,
+    backgroundColor: {
+      default: 'transparent',
+      ':hover': tokens.colorBackgroundHover,
     },
+    color: tokens.colorForeground,
   },
   // Sizes
   sm: {
+    fontSize: tokens.fontSizeSm,
     height: '2rem',
     padding: `0 ${tokens.space3}`,
-    fontSize: tokens.fontSizeSm,
   },
   md: {
     height: '2.5rem',
     padding: `0 ${tokens.space4}`,
   },
   lg: {
+    fontSize: tokens.fontSizeLg,
     height: '3rem',
     padding: `0 ${tokens.space6}`,
-    fontSize: tokens.fontSizeLg,
   },
 });
 

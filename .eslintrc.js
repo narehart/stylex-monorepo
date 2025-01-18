@@ -10,7 +10,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:@stylexjs/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -27,6 +26,7 @@ module.exports = {
       version: 'detect',
     },
   },
+  ignorePatterns: ['**/coverage', '**/build', '*.d.ts', '**/dist'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -45,12 +45,19 @@ module.exports = {
       },
     ],
     '@stylexjs/valid-styles': 'error',
+    '@stylexjs/sort-keys': 'warn',
   },
   overrides: [
     {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       env: {
         jest: true,
+      },
+    },
+    {
+      files: ['**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],

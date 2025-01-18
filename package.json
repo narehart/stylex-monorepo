@@ -14,7 +14,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@stylexjs/eslint-plugin": "^0.4.1",
+    "@stylexjs/eslint-plugin": "^0.10.1",
     "@types/node": "^20.8.2",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.10",

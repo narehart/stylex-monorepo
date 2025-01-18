@@ -5,57 +5,61 @@ import { tokens } from '../../tokens.stylex';
 
 const styles = stylex.create({
   trigger: {
-    width: '100%',
-    display: 'inline-flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    borderRadius: tokens.borderRadius,
-    borderWidth: tokens.borderWidth,
-    borderStyle: 'solid',
-    borderColor: tokens.colorBorder,
-    padding: `${tokens.space2} ${tokens.space4}`,
-    fontSize: tokens.fontSizeBase,
-    lineHeight: tokens.lineHeightBase,
     backgroundColor: tokens.colorBackground,
+    borderColor: {
+      default: tokens.colorBorder,
+      ':hover': tokens.colorBorderHover,
+      ':focus': tokens.colorPrimary,
+    },
+    borderRadius: tokens.borderRadius,
+    borderStyle: 'solid',
+    borderWidth: tokens.borderWidth,
+    boxShadow: {
+      ':focus': `0 0 0 ${tokens.borderWidthFocus} ${tokens.colorPrimary}33`,
+    },
     color: tokens.colorForeground,
-    ':hover': {
-      borderColor: tokens.colorBorderHover,
+    display: 'inline-flex',
+    fontSize: tokens.fontSizeBase,
+    justifyContent: 'space-between',
+    lineHeight: tokens.lineHeightBase,
+    outline: {
+      ':focus': 'none',
     },
-    ':focus': {
-      outline: 'none',
-      borderColor: tokens.colorPrimary,
-      boxShadow: `0 0 0 ${tokens.borderWidthFocus} ${tokens.colorPrimary}33`,
-    },
+    padding: `${tokens.space2} ${tokens.space4}`,
+    width: '100%',
   },
   content: {
-    overflow: 'hidden',
     backgroundColor: tokens.colorBackground,
-    borderRadius: tokens.borderRadius,
-    boxShadow: tokens.shadowLg,
-    borderWidth: tokens.borderWidth,
-    borderStyle: 'solid',
     borderColor: tokens.colorBorder,
+    borderRadius: tokens.borderRadius,
+    borderStyle: 'solid',
+    borderWidth: tokens.borderWidth,
+    boxShadow: tokens.shadowLg,
+    overflow: 'hidden',
   },
   viewport: {
     padding: tokens.space1,
   },
   item: {
+    alignItems: 'center',
+    backgroundColor: {
+      ':hover': tokens.colorBackgroundHover,
+      ':focus': tokens.colorBackgroundActive,
+    },
+    borderRadius: tokens.borderRadius,
+    color: tokens.colorForeground,
+    cursor: {
+      ':hover': 'pointer',
+    },
+    display: 'flex',
     fontSize: tokens.fontSizeBase,
     lineHeight: tokens.lineHeightBase,
-    color: tokens.colorForeground,
-    borderRadius: tokens.borderRadius,
-    display: 'flex',
-    alignItems: 'center',
+    outline: {
+      ':focus': 'none',
+    },
     padding: `${tokens.space2} ${tokens.space3}`,
     userSelect: 'none',
-    ':hover': {
-      backgroundColor: tokens.colorBackgroundHover,
-      cursor: 'pointer',
-    },
-    ':focus': {
-      backgroundColor: tokens.colorBackgroundActive,
-      outline: 'none',
-    },
   },
 });
 

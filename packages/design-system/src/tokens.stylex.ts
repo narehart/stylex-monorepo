@@ -63,4 +63,4 @@ export const tokens = stylex.defineVars({
   colorBackgroundActive: 'rgb(0, 0, 0, 0.1)',
   colorBorderHover: '#d1d5db',
   colorPrimary33: 'rgb(59, 130, 246, 0.33)', // Used for focus shadow
-});
+} as const);

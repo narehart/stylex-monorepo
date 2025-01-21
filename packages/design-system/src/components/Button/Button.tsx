@@ -20,6 +20,7 @@ const styles = stylex.create({
     gap: tokens.space2,
     justifyContent: 'center',
     opacity: {
+      default: null,
       ':disabled': 0.5,
     },
     transition: `all ${tokens.transitionDuration} ${tokens.transitionTimingFunction}`,
@@ -28,7 +29,7 @@ const styles = stylex.create({
   solid: {
     backgroundColor: {
       default: tokens.colorPrimary,
-      hover: tokens.colorPrimaryHover,
+      ':hover': tokens.colorPrimaryHover,
     },
     color: tokens.colorPrimaryForeground,
   },

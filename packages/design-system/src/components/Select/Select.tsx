@@ -16,6 +16,7 @@ const styles = stylex.create({
     borderStyle: 'solid',
     borderWidth: tokens.borderWidth,
     boxShadow: {
+      default: null,
       ':focus': `0 0 0 ${tokens.borderWidthFocus} ${tokens.colorPrimary}33`,
     },
     color: tokens.colorForeground,
@@ -24,6 +25,7 @@ const styles = stylex.create({
     justifyContent: 'space-between',
     lineHeight: tokens.lineHeightBase,
     outline: {
+      default: null,
       ':focus': 'none',
     },
     padding: `${tokens.space2} ${tokens.space4}`,
@@ -44,18 +46,21 @@ const styles = stylex.create({
   item: {
     alignItems: 'center',
     backgroundColor: {
+      default: null,
       ':hover': tokens.colorBackgroundHover,
       ':focus': tokens.colorBackgroundActive,
     },
     borderRadius: tokens.borderRadius,
     color: tokens.colorForeground,
     cursor: {
+      default: null,
       ':hover': 'pointer',
     },
     display: 'flex',
     fontSize: tokens.fontSizeBase,
     lineHeight: tokens.lineHeightBase,
     outline: {
+      default: null,
       ':focus': 'none',
     },
     padding: `${tokens.space2} ${tokens.space3}`,

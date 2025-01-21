@@ -42,7 +42,8 @@ stylex-demo/
 ├── packages/
 │   ├── design-system/        # Core UI components and tokens
 ├── apps/
-│   └── client-spa/           # Client-only rendering web application
+│   ├── web-browser/          # Web application where code is exclusively executed by the browser
+│   ├── web-isomorphic/       # Web application where code is executed by both the server and the browser
 ```
 
 ## 📝 Development Guide

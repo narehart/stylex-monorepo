@@ -1,5 +1,5 @@
 {
-  "name": "client-spa",
+  "name": "web-browser",
   "private": true,
   "scripts": {
     "dev": "webpack serve --mode development",

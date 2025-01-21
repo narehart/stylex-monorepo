@@ -3,6 +3,7 @@
     "csstools.postcss",
     "esbenp.prettier-vscode",
     "yash-singh.stylex",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

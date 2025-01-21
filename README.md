@@ -42,7 +42,7 @@ stylex-demo/
 ├── packages/
 │   ├── design-system/        # Core UI components and tokens
 ├── apps/
-│   └── web/                  # Main web application
+│   └── client-spa/           # Client-only rendering web application
 ```
 
 ## 📝 Development Guide
@@ -64,7 +64,7 @@ stylex-demo/
 
 2. **Development Workflow**
    - Make changes in `packages/design-system/src`
-   - Make changes in `apps/web/src`
+   - Make changes in `apps/client-spa/src`
    - View changes at http://localhost:3000/
 
 ### 🐛 Troubleshooting

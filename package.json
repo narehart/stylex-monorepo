@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "clean": "rimraf node_modules",
-    "dev": "concurrently \"npm run dev --workspace=@monorepo/design-system\" \"wait-on packages/design-system/dist/index.js && npm run dev --workspace=web\"",
+    "dev": "concurrently \"npm run dev --workspace=@monorepo/design-system\" \"wait-on packages/design-system/dist/index.js && npm run dev --workspace=client-spa\"",
     "lint": "npm run lint --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"

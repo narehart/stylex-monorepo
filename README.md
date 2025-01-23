@@ -64,7 +64,7 @@ stylex-demo/
 
 2. **Development Workflow**
    - Make changes in `packages/design-system/src`
-   - Make changes in `apps/client-spa/src`
+   - Make changes in `apps/web-browser/src`
    - View changes at http://localhost:3000/
 
 ### 🐛 Troubleshooting
